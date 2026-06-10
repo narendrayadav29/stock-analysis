@@ -21,10 +21,13 @@ TIMEOUT = 12
 
 # ── StockTwits (best-effort, may 403) ─────────────────────────────────────────
 def get_stocktwits_sentiment(ticker: str) -> dict:
+    # StockTwits has been returning 403 on all endpoints since June 2026 —
+    # skip the HTTP call entirely to avoid per-stock timeout overhead.
+    if not STOCKTWITS_TOKEN:
+        return _st_empty(ticker)
+
     base = "https://api.stocktwits.com/api/2"
-    params = {"limit": STOCKTWITS_SENTIMENT_LIMIT}
-    if STOCKTWITS_TOKEN:
-        params["access_token"] = STOCKTWITS_TOKEN
+    params = {"limit": STOCKTWITS_SENTIMENT_LIMIT, "access_token": STOCKTWITS_TOKEN}
     try:
         r = requests.get(f"{base}/streams/symbol/{ticker}.json", params=params, timeout=TIMEOUT)
         if r.status_code in (403, 401):
@@ -61,12 +64,17 @@ def _st_empty(ticker: str) -> dict:
 
 
 # ── Fear & Greed Index via alternative.me (free, no key) ──────────────────────
+_FG_CACHE: dict | None = None
+
 def get_fear_greed() -> dict:
     """
     Market Fear & Greed score from alternative.me — free, no key required.
     0 = Extreme Fear, 100 = Extreme Greed.
-    Originally crypto-focused but now tracks broad market sentiment.
+    Cached in-process so repeated calls per run cost zero extra HTTP requests.
     """
+    global _FG_CACHE
+    if _FG_CACHE is not None:
+        return _FG_CACHE
     try:
         r = requests.get(
             "https://api.alternative.me/fng/",
@@ -79,7 +87,7 @@ def get_fear_greed() -> dict:
         prev   = data[1] if len(data) > 1 else {}
         score  = int(latest.get("value", 0)) if latest.get("value") else None
         prev_score = int(prev.get("value", 0)) if prev.get("value") else None
-        return {
+        _FG_CACHE = {
             "score":      score,
             "rating":     latest.get("value_classification", ""),
             "prev_score": prev_score,
@@ -90,6 +98,7 @@ def get_fear_greed() -> dict:
             ),
             "available": True,
         }
+        return _FG_CACHE
     except Exception as exc:
         logger.warning("Fear & Greed error: %s", exc)
         return {"score": None, "rating": None, "trend": None, "available": False}
