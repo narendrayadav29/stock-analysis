@@ -11,17 +11,31 @@ from config import CLAUDE_MODEL
 
 logger = logging.getLogger(__name__)
 
-# Resolve the claude binary at import time so subprocess finds it regardless of PATH
 _CLAUDE_BIN = shutil.which("claude") or "/opt/homebrew/bin/claude"
 
 
 def _call_claude(prompt: str, system: str, max_tokens: int = 1400) -> str:
-    """Call the claude CLI, which uses existing Claude Code Pro auth."""
+    """
+    Call Claude via the Anthropic SDK when ANTHROPIC_API_KEY is set (CI/cloud),
+    otherwise fall back to the local Claude CLI (local dev with Claude Code auth).
+    """
+    if os.getenv("ANTHROPIC_API_KEY"):
+        import anthropic
+        client = anthropic.Anthropic()
+        msg = client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=max_tokens,
+            system=system,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return msg.content[0].text.strip()
+
+    # Local fallback: Claude CLI
     full_prompt = f"{system}\n\n---\n\n{prompt}"
     result = subprocess.run(
         [_CLAUDE_BIN, "-p", full_prompt],
         capture_output=True, text=True, timeout=180,
-        env=os.environ,  # pass full shell environment including PATH
+        env=os.environ,
     )
     if result.returncode != 0:
         raise RuntimeError(result.stderr.strip() or "claude CLI returned non-zero exit")

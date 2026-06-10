@@ -159,11 +159,11 @@ def main():
     args = parser.parse_args()
 
     # ── Guards ────────────────────────────────────────────────────────────────
-    if not args.dry_run:
-        import shutil as _sh, subprocess as _sp, os as _os
+    if not args.dry_run and not os.getenv("ANTHROPIC_API_KEY"):
+        import shutil as _sh, subprocess as _sp
         _claude_bin = _sh.which("claude") or "/opt/homebrew/bin/claude"
         probe = _sp.run([_claude_bin, "-p", "ping"], capture_output=True, text=True,
-                        timeout=15, env=_os.environ)
+                        timeout=15, env=os.environ)
         if probe.returncode != 0:
             console.print("[bold red]ERROR: claude CLI not responding. Is Claude Code running?[/]")
             sys.exit(1)
