@@ -6,8 +6,6 @@ Composite score weights: 40% revenue growth, 30% 52-week momentum, 30% forward v
 """
 
 import logging
-import yfinance as yf
-import pandas as pd
 
 logger = logging.getLogger(__name__)
 
@@ -44,28 +42,9 @@ def _score_ticker(info: dict) -> float:
 
 def get_stock_universe(tickers: list[str] | None = None, top_n: int = 50) -> list[str]:
     """
-    Return a list of up to top_n tickers ranked by composite growth score.
-    Pass explicit tickers to skip screening (e.g. from --tickers CLI flag).
+    Return up to top_n tickers from the curated universe.
+    The static list is already ordered by quality — no pre-screening needed.
+    Per-ticker fundamentals are fetched during analysis anyway.
     """
     candidates = tickers if tickers else _UNIVERSE
-    rows = []
-    for ticker in candidates:
-        try:
-            info = yf.Ticker(ticker).fast_info
-            # fast_info doesn't have everything; fall back to full info for scoring
-            full = yf.Ticker(ticker).info
-            score = _score_ticker(full)
-            rows.append({"ticker": ticker, "score": score})
-        except Exception as exc:
-            logger.debug("Universe screen skipped %s: %s", ticker, exc)
-
-    if not rows:
-        return candidates[:top_n]
-
-    df = (
-        pd.DataFrame(rows)
-        .sort_values("score", ascending=False)
-        .drop_duplicates("ticker")
-        .head(top_n)
-    )
-    return df["ticker"].tolist()
+    return list(candidates[:top_n])
