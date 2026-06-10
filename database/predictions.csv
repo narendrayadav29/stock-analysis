@@ -1,0 +1,118 @@
+id,run_id,run_date,ticker,company_name,sector,industry,verdict,conviction,target_low,target_high,catalyst,summary,price_at_analysis,revenue_growth,fwd_pe,peg_ratio,rsi_14,market_cap,fear_greed_score,news_sentiment,macd_signal,obv_trend,trend,price_1d,price_7d,price_30d,price_90d,return_1d,return_7d,return_30d,return_90d,hit_target_7d,hit_target_30d,hit_target_90d,full_analysis,created_at,run_timestamp,model
+3,1,2026-06-04,APP,AppLovin Corporation,Communication Services,Advertising Agencies,BUY,HIGH,620.0,780.0,Axon e-commerce/CTV expansion driving forward EPS re-rating,"AppLovin's AI advertising engine prints software-level margins at hypergrowth velocity — forward P/E compressing to 25x as EPS doubles makes the risk/reward asymmetric to the upside, with the 25% drawdown from highs offering a constructive re-entry before the August earnings catalyst.",558.59,0.59,25.475525,1.67,65.3,187650785280.0,12.0,-0.052,no_cross,rising,uptrend,,,,,,,,,0,0,0,"## 1. FUNDAMENTAL QUALITY
+
+AppLovin is a best-in-class compounder: 59% revenue growth paired with 88.4% gross margins and a 78.2% operating margin is virtually unmatched in ad-tech — this is a software economics business masquerading in an advertising wrapper. FCF of $3.94B on $6.16B TTM revenue (64% FCF conversion) signals the Axon AI engine is reaching true operating leverage, with quarterly revenue compounding from $1.26B → $1.84B in four periods. ROE of 266% confirms capital is being deployed with extraordinary efficiency.
+
+## 2. VALUATION
+
+Stretched in absolute terms but defensible on a growth-adjusted basis: a forward P/E of 25.5x on a business growing earnings at 113% YoY implies a PEG of ~0.23 on a forward basis — the trailing PEG of 1.7 flatters the bear case. P/S of 30.4x is the real tension point; it leaves zero margin for a guidance miss, and at EV/EBITDA of 39.6x, the market is fully pricing in continued Axon monetization expansion into e-commerce and CTV verticals.
+
+## 3. RETAIL SENTIMENT SIGNAL
+
+Both StockTwits and Reddit data are unavailable, rendering crowd positioning unreadable. The CNN Fear & Greed Index at 12/100 (Extreme Fear) is a market-wide contrarian signal — retail capitulation often creates institutional entry windows in high-quality names. Absence of visible retail crowding in APP specifically removes a key crowded-long risk.
+
+## 4. TECHNICAL STRUCTURE
+
+The structure is constructively bullish: price sits 19% above MA50 and 3.6% above MA200, confirming an intact uptrend with the long-term trend line recently reclaimed. RSI at 65.3 has room before overbought, OBV is rising (institutional accumulation), and the options sweep is pure calls (20/0 P/C ratio) — however, volume at 0.5x the 20-day average on this move is a yellow flag, suggesting conviction buyers are not yet piling in at scale. The stock is 25% off its 52-week high of $745.6, providing a constructive re-entry window.
+
+## 5. EARNINGS TRAJECTORY
+
+A 4/4 beat rate with the last quarter landing a +3.4% upside surprise demonstrates systematic guidance sandbagging — a hallmark of management teams that under-promise and over-deliver. Next earnings on 2026-08-05 is the pivotal catalyst; the key watch will be whether Axon's e-commerce and CTV expansion is sustaining or if mobile gaming ad spend normalization drags on top-line. With analyst consensus at 30 strong buys, any miss will be punished severely given premium positioning.
+
+## 6. NEWS & INSIDER SIGNALS
+
+The insider signal warrants scrutiny: both the CFO and CTO (including CTO-linked family trusts) are executing pre-scheduled 10b5-1 sales, with the CTO selling over 70,000 shares in recent transactions. While 10b5-1 plans are pre-arranged and legally routine, the scale of CTO disposition at a 25% discount to the 52-week high is notable — insiders are not buying the dip. News sentiment is neutral (-0.1) with the June 3 single-day -6.06% drop suggesting event-driven selling pressure, possibly macro-driven rather than company-specific.
+
+## 7. KEY RISKS
+
+- **Axon concentration risk**: APP's valuation hinges on continuous ROAS improvement in Axon; any degradation from model drift, signal loss (ATT/privacy), or platform policy changes at Apple/Google would compress multiples violently.
+- **Leverage overhang**: Debt/Equity of 162.9 is aggressive; in a risk-off environment or rising rate regime, the balance sheet amplifies downside, particularly as the company has limited hard asset backing.
+- **Executive distribution pressure**: Sustained CTO/CFO selling near current prices signals insiders view the risk/reward as balanced-to-unfavorable at these levels — smart money is lightening, not adding.
+- **Valuation cliff on guidance miss**: At P/S 30x with no margin for error, any miss on Axon monetization guidance or e-commerce vertical progress could trigger a 20-30% de-rating in a single session given beta of 2.4.
+
+---STRUCTURED OUTPUT---
+VERDICT: BUY
+CONVICTION: HIGH
+TARGET_LOW: 620
+TARGET_HIGH: 780
+CATALYST: Axon e-commerce/CTV expansion driving forward EPS re-rating
+SUMMARY: AppLovin's AI advertising engine prints software-level margins at hypergrowth velocity — forward P/E compressing to 25x as EPS doubles makes the risk/reward asymmetric to the upside, with the 25% drawdown from highs offering a constructive re-entry before the August earnings catalyst.
+---END---",2026-06-04 17:29:06,2026-06-04T12:26:02,claude-sonnet-4-6
+2,1,2026-06-04,GOOGL,Alphabet Inc.,Communication Services,Internet Content & Information,BUY,HIGH,410.0,470.0,Q2 2026 earnings beat on July 23 + Cloud margin expansion,"GOOGL is a rare mega-cap with accelerating earnings leverage, near-oversold technicals after an 8.8% pullback from highs, and aggressive call-side options positioning — the risk/reward is strongly asymmetric into the July earnings catalyst.",372.605,0.218,25.767279,1.42,30.5,4514214576128.0,12.0,0.106,no_cross,falling,strong_uptrend,,,,,,,,,0,0,0,"## 1. FUNDAMENTAL QUALITY
+
+Alphabet is executing at a rare combination of scale and acceleration: 21.8% revenue growth on a $422B TTM base, with 82% earnings growth YoY signaling dramatic operating leverage rather than top-line gaming. Margins are elite and expanding — 60.4% gross, 36.1% operating, 37.9% net — while $73.3B in annual FCF dwarfs most companies' entire market caps. R&D spend of $61.1B is the AI infrastructure investment flying under the income statement.
+
+## 2. VALUATION
+
+At PEG 1.4 against 82% earnings growth and Forward P/E of 25.8, GOOGL is priced at a modest premium to the S&P 500 for a business compounding earnings at nearly 4x the index — this is structurally cheap if the earnings trajectory holds. P/S of 10.7 is defensible for 37.9% net margins; comparable AI-adjacent hyperscalers trade at 12-18x sales with worse margins.
+
+## 3. RETAIL SENTIMENT SIGNAL
+
+Social data is a void — zero StockTwits messages, zero Reddit mentions — which is paradoxically constructive: institutional consensus (52 strong buy analysts) is not being crowded out by retail FOMO, suggesting the stock is not in a momentum-driven bubble. The CNN Fear & Greed Index at 12/100 (Extreme Fear, rising) is a macro contrarian setup.
+
+## 4. TECHNICAL STRUCTURE
+
+The stock is in a confirmed strong uptrend on the MA200 basis (+23%), but has pulled back hard into near-term compression: price sits 3.6% below MA20, RSI at 30.5 is on the edge of oversold, and Bollinger %B of 0.2 flags the lower band — a mean-reversion setup. The bearish signal is OBV in distribution, suggesting institutional selling into the pullback rather than accumulation; this needs to reverse before the technical all-clear.
+
+## 5. EARNINGS TRAJECTORY
+
+Four consecutive beats with a 91.6% upside EPS surprise last quarter (actual $5.11 vs. implied estimate ~$2.67 given the 91.6% surprise magnitude) — this is a business materially outperforming Street models. Next earnings July 23, 2026 is the pivotal catalyst; with Cloud accelerating and Search holding despite AI competition fears, setup for another beat is strong.
+
+## 6. NEWS & INSIDER SIGNALS
+
+Options flow is the clearest smart money signal: 20 calls, 0 puts, bullish sweep classification with a P/C ratio of 0.0 — someone is positioning aggressively for upside through the July earnings window. News sentiment is a neutral 0.1 (somewhat bullish across 50 articles), with today's +3.2% move suggesting a specific catalyst (likely macro relief or AI announcement). Insider data unavailable — absence of sells in a 3.17% up day is a non-event.
+
+## 7. KEY RISKS
+
+- **Antitrust execution risk**: DOJ search monopoly remedies (forced divestiture of Chrome/Android) could structurally impair the Search moat that drives 56%+ of revenue
+- **AI search cannibalization**: Perplexity, OpenAI Search, and Gemini's own AI Overviews reducing monetizable click-through rates faster than Cloud offsets
+- **Advertising cycle**: At $4.5T market cap, even a 5-7% ad market softening creates $20-30B revenue risk; macro at extreme fear isn't resolved
+- **Cloud margin compression**: GCP investing heavily to catch AWS/Azure — Cloud growth may come at operating margin cost, limiting the earnings leverage story
+
+---STRUCTURED OUTPUT---
+VERDICT: BUY
+CONVICTION: HIGH
+TARGET_LOW: 410
+TARGET_HIGH: 470
+CATALYST: Q2 2026 earnings beat on July 23 + Cloud margin expansion
+SUMMARY: GOOGL is a rare mega-cap with accelerating earnings leverage, near-oversold technicals after an 8.8% pullback from highs, and aggressive call-side options positioning — the risk/reward is strongly asymmetric into the July earnings catalyst.
+---END---",2026-06-04 17:28:02,2026-06-04T12:26:02,claude-sonnet-4-6
+1,1,2026-06-04,NVDA,NVIDIA Corporation,Technology,Semiconductors,STRONG BUY,HIGH,265.0,350.0,Blackwell/Rubin architecture ramp + sovereign AI infrastructure spending wave,"NVDA is the AI infrastructure monopoly trading at a 0.7 PEG with forward P/E of 17x against the most explosive earnings growth trajectory in large-cap history, and extreme market fear has created a textbook pullback-within-uptrend entry point.",218.796,0.852,17.32196,0.66,36.0,5299070042112.0,12.0,0.222,no_cross,falling,strong_uptrend,,,,,,,,,0,0,0,"## 1. FUNDAMENTAL QUALITY
+
+NVIDIA's revenue trajectory is historically unprecedented at scale: $27B → $61B → $131B → $216B in four quarters, representing an ~8x revenue expansion while simultaneously expanding gross margins to 74.1% and net margins to 63.0%. At $96.7B in trailing FCF on $253B TTM revenue, this is the most capital-efficient large-cap in the S&P 500 by a wide margin. ROE of 114% and ROA of 53% reflect near-monopoly pricing power in AI accelerated compute.
+
+## 2. VALUATION
+
+The forward P/E of 17.3 against 214% EPS growth produces a PEG of 0.7 — deeply undervalued by classical growth metrics. Applying even a conservative 25x forward multiple to ~$13 forward EPS implies a fair value near $325, roughly 48% above current price. Vs. AMD (P/S ~10) and TSMC (P/S ~12), NVDA's 20.9x P/S premium is justified by dramatically superior margins and AI infrastructure monopoly positioning.
+
+## 3. RETAIL SENTIMENT SIGNAL
+
+Both StockTwits and Reddit data are unavailable, eliminating the crowding signal entirely. The CNN Fear & Greed Index at 12 (Extreme Fear) is a market-wide contrarian indicator — historically, NVDA has delivered its strongest 3-month forward returns when purchased during broad market capitulation phases, as forced selling creates entry points disconnected from company-specific fundamentals.
+
+## 4. TECHNICAL STRUCTURE
+
+Price at $218.8 sits above all three major moving averages (MA20: $219.4 / MA50: $202.9 / MA200: $188.4), confirming the structural uptrend is intact. However, RSI at 36 approaching oversold, negative MACD histogram, falling OBV, and volume running at only 0.6x average collectively signal active distribution — smart money is trimming into the fear environment, not buying. The -7.5% pullback from the $236.5 52W high is a healthy reset, not a breakdown, but near-term downside pressure persists until volume re-expands.
+
+## 5. EARNINGS TRAJECTORY
+
+NVDA has beaten EPS estimates 4 consecutive quarters (100% beat rate), with the most recent Q delivering a 5.5% upside surprise. Next earnings on 2026-08-26 represents the next major catalyst window. Given Blackwell ramp acceleration and sovereign AI infrastructure contracts, the risk is asymmetric: a miss would be shock-driven, while a beat (the base case per analyst consensus) confirms continued hyperscaler capex inflows.
+
+## 6. NEWS & INSIDER SIGNALS
+
+News flow is constructive at the margin — the Aptiv edge AI partnership expansion signals NVDA's compute stack is penetrating automotive/industrial verticals beyond data centers, a material TAM expansion story. Options flow is aggressively bullish (20 calls / 0 puts, bullish sweep, P/C ratio of 0.0), indicating institutional smart money is positioning for upside via leveraged calls — this is the highest-conviction signal available given absent insider data and retail sentiment gaps.
+
+## 7. KEY RISKS
+
+- **Export control escalation**: Further U.S. restrictions on H20/Blackwell chip exports to China could materially cut into the ~15-17% of revenue tied to that market, with limited near-term substitution.
+- **Hyperscaler capex pause/rationalization**: Any signal from MSFT, AMZN, GOOGL, or META of data center spending deceleration would compress NVDA's forward revenue estimates rapidly given the concentrated customer base.
+- **Custom silicon displacement**: Google TPUs, AWS Trainium, and in-house ASIC programs at major customers represent structural long-term share erosion; near-term risk is low, medium-term risk is rising.
+- **Valuation multiple compression in risk-off environment**: With market-wide Fear & Greed at 12 and beta of 2.2, a sustained macro risk-off episode could push NVDA toward the MA200 ($188) even without any fundamental deterioration — a 14% drawdown from current levels.
+
+---STRUCTURED OUTPUT---
+VERDICT: STRONG BUY
+CONVICTION: HIGH
+TARGET_LOW: 265
+TARGET_HIGH: 350
+CATALYST: Blackwell/Rubin architecture ramp + sovereign AI infrastructure spending wave
+SUMMARY: NVDA is the AI infrastructure monopoly trading at a 0.7 PEG with forward P/E of 17x against the most explosive earnings growth trajectory in large-cap history, and extreme market fear has created a textbook pullback-within-uptrend entry point.
+---END---",2026-06-04 17:27:07,2026-06-04T12:26:02,claude-sonnet-4-6

@@ -1,0 +1,27 @@
+# Secrets
+.env
+
+# Database
+database/stocks.db
+database/stocks.db-shm
+database/stocks.db-wal
+database/.edgar_cache/
+
+# Runtime output
+logs/
+results/
+adhocresult/
+reports/
+
+# Claude internal
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# macOS
+.DS_Store

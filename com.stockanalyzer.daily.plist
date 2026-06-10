@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.stockanalyzer.daily</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/narendrayadav/develop/stocktwit/run_daily.sh</string>
+    </array>
+
+    <!-- Run every weekday at 8:30 AM -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>   <integer>7</integer>
+            <key>Minute</key> <integer>30</integer>
+            <key>Weekday</key><integer>1</integer>  <!-- Monday -->
+        </dict>
+        <dict>
+            <key>Hour</key>   <integer>7</integer>
+            <key>Minute</key> <integer>30</integer>
+            <key>Weekday</key><integer>2</integer>  <!-- Tuesday -->
+        </dict>
+        <dict>
+            <key>Hour</key>   <integer>7</integer>
+            <key>Minute</key> <integer>30</integer>
+            <key>Weekday</key><integer>3</integer>  <!-- Wednesday -->
+        </dict>
+        <dict>
+            <key>Hour</key>   <integer>7</integer>
+            <key>Minute</key> <integer>30</integer>
+            <key>Weekday</key><integer>4</integer>  <!-- Thursday -->
+        </dict>
+        <dict>
+            <key>Hour</key>   <integer>7</integer>
+            <key>Minute</key> <integer>30</integer>
+            <key>Weekday</key><integer>5</integer>  <!-- Friday -->
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/narendrayadav/develop/stocktwit/logs/launchd_stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/narendrayadav/develop/stocktwit/logs/launchd_stderr.log</string>
+
+    <!-- Retry if missed (e.g. laptop was closed) -->
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
