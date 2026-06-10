@@ -1,17 +1,14 @@
 # Secrets
 .env
 
-# Database
-database/stocks.db
+# Database WAL temp files (the .db itself is tracked)
 database/stocks.db-shm
 database/stocks.db-wal
 database/.edgar_cache/
 
-# Runtime output
+# Local-only runtime output
 logs/
-results/
 adhocresult/
-reports/
 
 # Claude internal
 .claude/

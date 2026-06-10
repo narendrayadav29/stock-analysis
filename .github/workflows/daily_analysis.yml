@@ -1,0 +1,88 @@
+name: Daily Stock Analysis
+
+on:
+  schedule:
+    - cron: '0 14 * * *'   # 8:00 AM CST (UTC-6) / 9:00 AM CDT (UTC-5)
+  workflow_dispatch:         # allow manual trigger from GitHub UI
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0      # full history needed so DB commits don't squash
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Restore the SQLite database from the last committed state
+      - name: Restore database
+        run: |
+          mkdir -p database
+          if [ -f database/stocks.db ]; then
+            echo "Database found ($(du -sh database/stocks.db | cut -f1))"
+          else
+            echo "No prior database — will be created fresh"
+          fi
+
+      - name: Pull sentiment data
+        env:
+          ALPHA_VANTAGE_KEY:  ${{ secrets.ALPHA_VANTAGE_KEY }}
+          FINNHUB_KEY:        ${{ secrets.FINNHUB_KEY }}
+          POLYGON_KEY:        ${{ secrets.POLYGON_KEY }}
+          FMP_KEY:            ${{ secrets.FMP_KEY }}
+          FMP_BASE:           ${{ secrets.FMP_BASE }}
+          CLAUDE_MODEL:       ${{ secrets.CLAUDE_MODEL }}
+        run: python3 pull_sentiment.py --limit 30
+
+      - name: Pull ownership & macro data
+        env:
+          ALPHA_VANTAGE_KEY:  ${{ secrets.ALPHA_VANTAGE_KEY }}
+          FINNHUB_KEY:        ${{ secrets.FINNHUB_KEY }}
+          POLYGON_KEY:        ${{ secrets.POLYGON_KEY }}
+          FMP_KEY:            ${{ secrets.FMP_KEY }}
+          FMP_BASE:           ${{ secrets.FMP_BASE }}
+        run: python3 pull_ownership_macro.py --limit 30
+
+      - name: Run Claude stock analysis
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          ALPHA_VANTAGE_KEY:  ${{ secrets.ALPHA_VANTAGE_KEY }}
+          FINNHUB_KEY:        ${{ secrets.FINNHUB_KEY }}
+          POLYGON_KEY:        ${{ secrets.POLYGON_KEY }}
+          FMP_KEY:            ${{ secrets.FMP_KEY }}
+          FMP_BASE:           ${{ secrets.FMP_BASE }}
+          CLAUDE_MODEL:       ${{ secrets.CLAUDE_MODEL }}
+          RATE_LIMIT_DELAY:   '2'
+        run: python3 main.py --limit 30
+
+      - name: Update actual prices for past predictions
+        run: python3 -m database.track_actuals
+
+      # Commit DB + reports back so data persists across runs
+      - name: Commit results to repo
+        run: |
+          git config user.name  "Narendra Yadav"
+          git config user.email "narendra29@gmail.com"
+
+          # Track the DB and reports — unignore them for this commit only
+          git add -f database/stocks.db reports/ || true
+          git add results/ || true
+
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit"
+          else
+            DATE=$(date -u +"%Y-%m-%d")
+            git commit -m "chore: daily analysis results $DATE"
+            git push
+          fi
